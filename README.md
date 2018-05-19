@@ -1,1 +1,1 @@
-# Projet-BattleShip
+# Projet-AI: BattleShip
