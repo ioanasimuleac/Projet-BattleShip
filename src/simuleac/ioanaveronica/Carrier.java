@@ -1,7 +1,7 @@
 package simuleac.ioanaveronica;
 
 public class Carrier extends Ships {
-	private static int taille = 5;
+	private final int taille = 5;
 
 	public Carrier() {}
 	

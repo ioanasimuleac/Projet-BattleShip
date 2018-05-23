@@ -40,10 +40,11 @@ public abstract class Ships {
 		this.endC = endC;
 	}
 	
-	//position
+	//positions
 	public boolean isOnLigne(){
 		return (this.getEndC().getY() == this.getStartC().getY());
 	}
+	
 	public boolean isOnColonne(){//efectiv ship-ul asezat pe o coloana
 		return (this.getEndC().getX() == this.getStartC().getX());
 	}

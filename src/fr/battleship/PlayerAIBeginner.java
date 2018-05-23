@@ -22,7 +22,6 @@ public class PlayerAIBeginner extends Player implements IPlayerAI{
 	@Override
 	public void placedShips(Ships s) {
 		boolean pos = s.isOnColonne();
-		//System.out.println("in ce pozitie e barca: " + pos);
 		if(pos == true) {
 			char c = s.getStartC().getX();
 			int x = c - 'J' + 9;
@@ -33,16 +32,11 @@ public class PlayerAIBeginner extends Player implements IPlayerAI{
 			}
 		}else {
 			int j = s.getStartC().getY();
-			//System.out.println("linia: " + j);
 			char sc = s.getStartC().getX();
-			//System.out.println("char start: " + sc);
 			char ec = s.getEndC().getX();
-			//System.out.println("char end: " + ec);
 			int i ;
 			int n = ec - 'J' + 9;
-			//System.out.println("long n: " + n);
 			for(i= sc - 'J' + 9 ; i<=n ; i++) {
-				//System.out.println("i: " + i);
 				this.getBattlefield().setElementMat(j-1,i);
 			}
 		}
@@ -51,6 +45,7 @@ public class PlayerAIBeginner extends Player implements IPlayerAI{
 	
 	public PlayerAIBeginner() {
 		int ver;
+		//destroyer
 		Coordinates coordonata = new Coordinates(donneCharRandom(donneIntRandom()), donneIntRandom());
 		Coordinates coor = new Coordinates(donneCharRandom(donneIntRandom()), donneIntRandom());
 		Destroyer d1 = new Destroyer(coordonata, coor);
@@ -66,6 +61,7 @@ public class PlayerAIBeginner extends Player implements IPlayerAI{
 		this.placedShips(d1);
 		//System.out.println( "Destroyer: "+ d1.toString());
 		
+		//submarin
 		Coordinates c1 = new Coordinates(donneCharRandom(donneIntRandom()), donneIntRandom());
 		Coordinates c2 = new Coordinates(donneCharRandom(donneIntRandom()), donneIntRandom());
 		Submarin s = new Submarin(c1,c2);
@@ -78,9 +74,9 @@ public class PlayerAIBeginner extends Player implements IPlayerAI{
 		}
 		this.getFleet().add(s);
 		this.placedShips(s);
-		//System.out.println();
 		//System.out.println("Submarin: " + s.toString());
 		
+		//shipbattle
 		Coordinates c3 = new Coordinates(donneCharRandom(donneIntRandom()), donneIntRandom());
 		Coordinates c4 = new Coordinates(donneCharRandom(donneIntRandom()), donneIntRandom());
 		ShipBattle b = new ShipBattle(c3,c4);
@@ -93,10 +89,9 @@ public class PlayerAIBeginner extends Player implements IPlayerAI{
 		}
 		this.getFleet().add(b);
 		this.placedShips(b);
-		//System.out.println();
 		//System.out.println("BattleShip: " + b.toString());
 	
-		
+		//Carrier
 		Coordinates c5 = new Coordinates(donneCharRandom(donneIntRandom()), donneIntRandom());
 		Coordinates c6 = new Coordinates(donneCharRandom(donneIntRandom()), donneIntRandom());
 		Carrier c = new Carrier(c5,c6);
@@ -109,9 +104,9 @@ public class PlayerAIBeginner extends Player implements IPlayerAI{
 		}
 		this.getFleet().add(c);
 		this.placedShips(c);
-		//System.out.println();
 		//System.out.println("Carrier: " + c.toString());
 		
+		//Cruiser
 		Coordinates c7 = new Coordinates(donneCharRandom(donneIntRandom()), donneIntRandom());
 		Coordinates c8 = new Coordinates(donneCharRandom(donneIntRandom()), donneIntRandom());
 		Cruiser cr = new Cruiser(c7,c8);
@@ -124,7 +119,6 @@ public class PlayerAIBeginner extends Player implements IPlayerAI{
 		}
 		this.getFleet().add(cr);
 		this.placedShips(cr);
-		//System.out.println();
 		//System.out.println("Cruiser: " + cr.toString());
 	}
 	

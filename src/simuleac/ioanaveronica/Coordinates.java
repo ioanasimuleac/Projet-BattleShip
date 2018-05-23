@@ -38,16 +38,13 @@ public class Coordinates {
 		return (this.isGoodX(this) && this.isGoodY(this));
 	}
 	
-	//fonctions pour verifier si les coordonnees introduites peuvent creer une bateau
-	//adica daca pot cele doua coordonate sunt pe linie sau pe coloana
+	//fonctions pour verifier si les coordonnees introduites peuvent creer un bateau
+	//adica daca cele doua coordonate sunt pe linie sau pe coloana
 	public boolean isGoodPlaced(Coordinates ct) {
 		return (this.getX() == ct.getX() || this.getY() == ct.getY());
 	}
 	
-	//fonction qui va
-	//public void getNei
-	
-	//fonctions pour verifier isHit()
+	//fonction pour verifier isHit()
 	public boolean inBetweenX(Coordinates cEnd,Coordinates cMissile){
 		char cXS = this.getX();
 		char cXE = cEnd.getX();

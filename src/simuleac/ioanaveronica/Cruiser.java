@@ -2,7 +2,7 @@ package simuleac.ioanaveronica;
 
 public class Cruiser extends Ships {
 	
-	private static int taille = 3;
+	private final int taille = 3;
 
 	public Cruiser() {}
 	

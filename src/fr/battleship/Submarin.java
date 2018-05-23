@@ -13,6 +13,7 @@ public class Submarin extends Ships{
 	public boolean isOnLigne(){
 		return (this.getEndC().getY() == this.getStartC().getY());
 	}
+	
 	public boolean isOnColonne(){//efectiv ship-ul asezat pe o coloana
 		return (this.getEndC().getX() == this.getStartC().getX());
 	}
@@ -33,19 +34,19 @@ public class Submarin extends Ships{
 	
 	// -1 si tout est bon
 	// 1 si les coordononnees sont mal ecrites
-	// 2 si nu pot creea shipul cu datele date
-	// 3 si shipul creat nu are lungimea care trebuie
+	// 2 si je ne peux pas creer le navire avec les coordonnees introduites
+	// 3 si le navire cree n'a pas la longeur correct(shipul creat nu are lungimea care trebuie)
 	public int verification() {
 		boolean ar;
 		boolean goodCoordStart = this.getStartC().isGood();
 		boolean goodCoordEnd = this.getEndC().isGood();
 
-		if (goodCoordStart == goodCoordEnd == true) {// ca coordonatele sunt corecte
-			ar = this.getStartC().isGoodPlaced(this.getEndC());// ca pot creea un ship
+		if (goodCoordStart == goodCoordEnd == true) {//les coordonnees sont correctes ca coordonatele sunt corecte
+			ar = this.getStartC().isGoodPlaced(this.getEndC());//je peux creer le navire
 			if (ar == true) {
 				boolean ver = this.isOnLigne();
 				int mesure;
-				if (ver == true) {// ce am creat chiar este ce trebuie
+				if (ver == true) {//ce que j'avais cree est ce qu'il faut
 					mesure = (this.getEndC().getX() - this.getStartC().getX()) + 1;
 				} else {
 					mesure = (this.getEndC().getY() - this.getStartC().getY()) + 1;
@@ -58,10 +59,8 @@ public class Submarin extends Ships{
 			} else {
 				return 2;
 			}
-
 		} else {
 			return 1;
 		}
-
 	}
 }

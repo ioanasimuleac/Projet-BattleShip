@@ -4,7 +4,7 @@ import java.util.Random;
 import java.util.Stack;
 
 public class PlayerAIHard extends Player implements IPlayerAI {
-	Stack<Coordinates> stackHints = new Stack<Coordinates>();
+	private Stack<Coordinates> stackHints = new Stack<Coordinates>();
 	
 	@Override
 	public char donneCharRandom(int r) {
@@ -23,7 +23,6 @@ public class PlayerAIHard extends Player implements IPlayerAI {
 	@Override
 	public void placedShips(Ships s) {
 		boolean pos = s.isOnColonne();
-		//System.out.println("in ce pozitie e barca: " + pos);
 		if(pos == true) {
 			char c = s.getStartC().getX();
 			int x = c - 'J' + 9;
@@ -34,16 +33,11 @@ public class PlayerAIHard extends Player implements IPlayerAI {
 			}
 		}else {
 			int j = s.getStartC().getY();
-			//System.out.println("linia: " + j);
 			char sc = s.getStartC().getX();
-			//System.out.println("char start: " + sc);
 			char ec = s.getEndC().getX();
-			//System.out.println("char end: " + ec);
 			int i ;
 			int n = ec - 'J' + 9;
-			//System.out.println("long n: " + n);
 			for(i= sc - 'J' + 9 ; i<=n ; i++) {
-				//System.out.println("i: " + i);
 				this.getBattlefield().setElementMat(j-1,i);
 			}
 		}
@@ -55,7 +49,6 @@ public class PlayerAIHard extends Player implements IPlayerAI {
 		Coordinates coor = new Coordinates(donneCharRandom(donneIntRandom()), donneIntRandom());
 		Destroyer d1 = new Destroyer(coordonata, coor);
 		ver = this.getBattlefield().isFree(d1);
-		//System.out.println("Cordonata draguta: " + ver);
 		while(ver != -1) {
 			coordonata = new Coordinates(donneCharRandom(donneIntRandom()), donneIntRandom());
 			coor = new Coordinates(donneCharRandom(donneIntRandom()), donneIntRandom());
@@ -131,7 +124,6 @@ public class PlayerAIHard extends Player implements IPlayerAI {
 	public boolean attaque(Player p) {
 		//System.out.println("Is it empty?: " + stackHints.isEmpty());
 		if(stackHints.isEmpty() == true) {
-			//System.out.println("Oui, it is empty?");
 			boolean hit = false;
 			boolean check;
 			Coordinates c1 = new Coordinates(donneCharRandom(donneIntRandom()), donneIntRandom());
@@ -159,27 +151,22 @@ public class PlayerAIHard extends Player implements IPlayerAI {
 					hit = true;	
 					//bagi coordonatele vecine in stack daca sunt diferite de hitAlready si daca sunt si corect facute
 					Coordinates cem = new Coordinates((char)(c1.getX() + 1), c1.getY());
-					//System.out.println("Vecin1: " + cem.toString());
-					if(cem.isGood() == true && p.getBattlefield().checkedHit(cem) == false) {
-						//System.out.println("Vecin1: " + cem.toString());
+					if(cem.isGood() == true && p.getBattlefield().checkedHit(cem) == false){
 						stackHints.push(cem);
 					}
 					
 					Coordinates cem1 = new Coordinates((char)(c1.getX()), c1.getY() + 1);
 					if(cem1.isGood() == true  && p.getBattlefield().checkedHit(cem1)== false) {
-						//System.out.println("Vecin2: " + cem1.toString());
 						stackHints.push(cem1);
 					}
 					
 					Coordinates cem2 = new Coordinates((char)(c1.getX() ), c1.getY() - 1);
-					if(cem2.isGood() == true && p.getBattlefield().checkedHit(cem2)== false) {
-						//System.out.println("Vecin3: " + cem2.toString());
+					if(cem2.isGood() == true && p.getBattlefield().checkedHit(cem2)== false){
 						stackHints.push(cem2);
 					}
 					
 					Coordinates cem3 = new Coordinates((char)(c1.getX() - 1), c1.getY() );
-					if(cem3.isGood() == true && p.getBattlefield().checkedHit(cem3)== false) {
-						//System.out.println("Vecin4: " + cem3.toString());
+					if(cem3.isGood() == true && p.getBattlefield().checkedHit(cem3)== false){
 						stackHints.push(cem3);
 					}
 				}
@@ -187,35 +174,30 @@ public class PlayerAIHard extends Player implements IPlayerAI {
 			return hit;
 		}else {
 			Coordinates fromStack = stackHints.pop();
-			//System.out.println("ce am scos din stack: " + fromStack.toString());
+			//System.out.println("sortir de la pile: " + fromStack.toString());
 			boolean hitt = false;
 			p.getBattlefield().setHitElement(fromStack.getX(), fromStack.getY());
 			for(int i = 0; i<p.getFleet().size() ; i++) {
 				if(p.getFleet().get(i).isHit(fromStack) == true) {
 					hitt = true;
-					//System.out.println("is hitttttttt!");
 					//bagi coordonatele vecine in stack daca sunt diferite de hitAlready si daca sunt si corect facute
 					Coordinates cem = new Coordinates((char)(fromStack.getX() + 1), fromStack.getY());
-					if(cem.isGood() == true && p.getBattlefield().checkedHit(cem)== false) {
-						//System.out.println("Vecin1 stack: " + cem.toString());
+					if(cem.isGood() == true && p.getBattlefield().checkedHit(cem)== false){
 						stackHints.push(cem);
 					}
 					
 					Coordinates cem1 = new Coordinates((char)(fromStack.getX()), fromStack.getY() + 1);
-					if(cem1.isGood() == true  && p.getBattlefield().checkedHit(cem1)== false) {
-						//System.out.println("Vecin2 stack: " + cem1.toString());
+					if(cem1.isGood() == true  && p.getBattlefield().checkedHit(cem1)== false){
 						stackHints.push(cem1);
 					}
 					
 					Coordinates cem2 = new Coordinates((char)(fromStack.getX() ), fromStack.getY() - 1);
-					if(cem2.isGood() == true && p.getBattlefield().checkedHit(cem2)== false) {
-						//System.out.println("Vecin3 stack: " + cem2.toString());
+					if(cem2.isGood() == true && p.getBattlefield().checkedHit(cem2)== false){
 						stackHints.push(cem2);
 					}
 					
 					Coordinates cem3 = new Coordinates((char)(fromStack.getX() - 1), fromStack.getY() );
-					if(cem3.isGood() == true && p.getBattlefield().checkedHit(cem3)== false) {
-						//System.out.println("Vecin4 stack: " + cem3.toString());
+					if(cem3.isGood() == true && p.getBattlefield().checkedHit(cem3)== false){
 						stackHints.push(cem3);
 					}
 				}

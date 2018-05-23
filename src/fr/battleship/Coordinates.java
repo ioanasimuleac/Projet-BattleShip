@@ -34,6 +34,7 @@ public class Coordinates {
 		int yc = c.getY();
 		return (yc >= 1 && yc <= 10);
 	}
+	
 	public boolean isGood() {
 		return (this.isGoodX(this) && this.isGoodY(this));
 	}
@@ -43,9 +44,6 @@ public class Coordinates {
 	public boolean isGoodPlaced(Coordinates ct) {
 		return (this.getX() == ct.getX() || this.getY() == ct.getY());
 	}
-	
-	//fonction qui va
-	//public void getNei
 	
 	//fonctions pour verifier isHit()
 	public boolean inBetweenX(Coordinates cEnd,Coordinates cMissile){

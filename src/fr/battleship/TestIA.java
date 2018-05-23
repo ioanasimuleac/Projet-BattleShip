@@ -6,14 +6,13 @@ import java.io.IOException;
 
 public class TestIA {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) /*throws IOException*/ {
 		
 		System.out.println("Premiere partie: BEGINNER VS MEDIUM");
 		PlayerAIMedium pm1 = new PlayerAIMedium();
 		PlayerAIBeginner pb = new PlayerAIBeginner();
 		int scorM = 0;
 		int scorB = 0;
-		//int index = 0;
 		for(int index = 0; index < 100; index++) {
 			int jucator = 1;
 			while((pm1.score() != pm1.getFleet().size()) && (pb.score() != pb.getFleet().size())){
@@ -52,7 +51,6 @@ public class TestIA {
 		PlayerAIBeginner pb1 = new PlayerAIBeginner();
 		int scorH1 = 0;
 		int scorB1 = 0;
-		//int index = 0;
 		for(int index = 0; index < 100; index++) {
 			int jucator1 = 1;
 			while((ph1.score() != ph1.getFleet().size()) && (pb1.score() != pb1.getFleet().size())){
@@ -126,30 +124,33 @@ public class TestIA {
 		
 		String theWay = "ai-proof.csv";
 		File fisier = new File(theWay);
-		fisier.createNewFile();
-		FileWriter f = new FileWriter(fisier);
-
-		f.write("AI NAME1;");
-		f.write("SCORE;");
-		f.write("AI NAME2;");
-		f.write("SCORE;\n");
-		
-		f.write("AI Level Beginner:;");
-		f.write(Integer.toString(scorB)+ ";");
-		f.write("Level Medium:;");
-		f.write(Integer.toString(scorM) + ";\n");
-		
-		f.write("AI Level Beginner:;");
-		f.write(Integer.toString(scorB1)+ ";");
-		f.write("Level Hard:;");
-		f.write(Integer.toString(scorH1) + ";\n");
-		
-		f.write("AI Level Medium:;");
-		f.write(Integer.toString(scorM2)+ ";");
-		f.write("Level Hard:;");
-		f.write(Integer.toString(scorH2) + ";\n");
-		
-		f.close();
-		System.out.println("FIN!");
+		try {
+			fisier.createNewFile();
+			FileWriter f = new FileWriter(fisier);
+			f.write("AI NAME1;");
+			f.write("SCORE;");
+			f.write("AI NAME2;");
+			f.write("SCORE;\n");
+			
+			f.write("AI Level Beginner:;");
+			f.write(Integer.toString(scorB)+ ";");
+			f.write("Level Medium:;");
+			f.write(Integer.toString(scorM) + ";\n");
+			
+			f.write("AI Level Beginner:;");
+			f.write(Integer.toString(scorB1)+ ";");
+			f.write("Level Hard:;");
+			f.write(Integer.toString(scorH1) + ";\n");
+			
+			f.write("AI Level Medium:;");
+			f.write(Integer.toString(scorM2)+ ";");
+			f.write("Level Hard:;");
+			f.write(Integer.toString(scorH2) + ";\n");
+			
+			f.close();
+		}catch(IOException e) {
+			System.out.println("Erreur sur le fichier");
+			System.out.println("Le message d'erreur est: " + e.getMessage());
+		}
 	}
 }

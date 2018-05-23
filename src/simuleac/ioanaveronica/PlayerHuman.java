@@ -22,7 +22,6 @@ public class PlayerHuman extends Player{
 	//placer les ships sur le grid
 	public void placedShips(Ships s) {
 		boolean pos = s.isOnColonne();
-		//System.out.println("in ce pozitie e barca: " + pos);
 		if(pos == true) {
 			char c = s.getStartC().getX();
 			int x = c - 'J' + 9;
@@ -33,21 +32,17 @@ public class PlayerHuman extends Player{
 			}
 		}else {
 			int j = s.getStartC().getY();
-			//System.out.println("linia: " + j);
 			char sc = s.getStartC().getX();
-			//System.out.println("char start: " + sc);
 			char ec = s.getEndC().getX();
-			//System.out.println("char end: " + ec);
 			int i ;
 			int n = ec - 'J' + 9;
-			//System.out.println("long n: " + n);
 			for(i= sc - 'J' + 9 ; i<=n ; i++) {
-				//System.out.println("i: " + i);
 				this.getBattlefield().setElementMat(j-1,i);
 			}
 		}
 	} 
 	
+	//donne le nombre de navire detruit par l'adversaire
 	public int score() {
 		int score = 0;
 		for(int i=0; i<this.getFleet().size() ; i++) {
@@ -201,7 +196,7 @@ public class PlayerHuman extends Player{
 		this.getFleet().add(s8);
 		this.placedShips(s8);
 		
-		// prima barca SUBMARIN
+		//SUBMARIN
 		System.out.println("Bateau: SUBMARIN avec la taille 3 (3 cases occupees)");
 		System.out.print("Coordonnee bateau: - coordonnnee de start (char)  ");
 		x = s.nextLine();

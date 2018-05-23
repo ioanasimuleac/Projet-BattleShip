@@ -22,7 +22,6 @@ public class PlayerAIBeginner extends Player implements IPlayerAI{
 	@Override
 	public void placedShips(Ships s) {
 		boolean pos = s.isOnColonne();
-		//System.out.println("in ce pozitie e barca: " + pos);
 		if(pos == true) {
 			char c = s.getStartC().getX();
 			int x = c - 'J' + 9;
@@ -33,16 +32,11 @@ public class PlayerAIBeginner extends Player implements IPlayerAI{
 			}
 		}else {
 			int j = s.getStartC().getY();
-			//System.out.println("linia: " + j);
 			char sc = s.getStartC().getX();
-			//System.out.println("char start: " + sc);
 			char ec = s.getEndC().getX();
-			//System.out.println("char end: " + ec);
 			int i ;
 			int n = ec - 'J' + 9;
-			//System.out.println("long n: " + n);
 			for(i= sc - 'J' + 9 ; i<=n ; i++) {
-				//System.out.println("i: " + i);
 				this.getBattlefield().setElementMat(j-1,i);
 			}
 		}
@@ -55,7 +49,6 @@ public class PlayerAIBeginner extends Player implements IPlayerAI{
 		Coordinates coor = new Coordinates(donneCharRandom(donneIntRandom()), donneIntRandom());
 		Destroyer d1 = new Destroyer(coordonata, coor);
 		ver = this.getBattlefield().isFree(d1);
-		//System.out.println("Cordonata draguta: " + ver);
 		while(ver != -1) {
 			coordonata = new Coordinates(donneCharRandom(donneIntRandom()), donneIntRandom());
 			coor = new Coordinates(donneCharRandom(donneIntRandom()), donneIntRandom());
@@ -132,13 +125,11 @@ public class PlayerAIBeginner extends Player implements IPlayerAI{
 		boolean hit = false;
 		boolean check;
 		Coordinates c1 = new Coordinates(donneCharRandom(donneIntRandom()), donneIntRandom());
-		//System.out.println("Coordonata din attaque: " + c1.toString());
 		check = c1.isGood();
 		while(check == false) {
 			c1 = new Coordinates(donneCharRandom(donneIntRandom()), donneIntRandom());
 			check = c1.isGood();
 		}
-		//System.out.println(c14.toString());
 		p.getBattlefield().setHitElement(c1.getX(), c1.getY());
 		for(int i = 0; i<p.getFleet().size() ; i++) {
 			if(p.getFleet().get(i).isHit(c1) == true) {

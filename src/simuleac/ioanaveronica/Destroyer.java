@@ -1,7 +1,7 @@
 package simuleac.ioanaveronica;
 
 public class Destroyer extends Ships {
-	private static int taille = 2;
+	private final int taille = 2;
 
 	public Destroyer() {}
 	
@@ -31,39 +31,38 @@ public class Destroyer extends Ships {
 		return howIsIt;
 	}
 	
-	// -1 si tout est bon
-	// 1 si les coordononnees sont mal ecrites
-	// 2 si nu pot creea shipul cu datele date
-	// 3 si shipul creat nu are lungimea care trebuie
-	public int verification() {
-		boolean ar;
-		boolean goodCoordStart = this.getStartC().isGood();
-		boolean goodCoordEnd = this.getEndC().isGood();
+		// -1 si tout est bon
+		// 1 si les coordononnees sont mal ecrites
+		// 2 si je ne peux pas creer le navire avec les coordonnees introduites
+		// 3 si le navire cree n'a pas la longeur correct(shipul creat nu are lungimea care trebuie)
+		public int verification() {
+			boolean ar;
+			boolean goodCoordStart = this.getStartC().isGood();
+			boolean goodCoordEnd = this.getEndC().isGood();
 
-		if (goodCoordStart == goodCoordEnd == true) {// ca coordonatele sunt corecte
-			ar = this.getStartC().isGoodPlaced(this.getEndC());// ca pot creea un ship
-			if (ar == true) {
-				boolean ver = this.isOnLigne();
-				int mesure;
-				if (ver == true) {// ce am creat chiar este ce trebuie
-					mesure = (this.getEndC().getX() - this.getStartC().getX()) + 1;
+			if (goodCoordStart == goodCoordEnd == true) {//les coordonnees sont correctes ca coordonatele sunt corecte
+				ar = this.getStartC().isGoodPlaced(this.getEndC());//je peux creer le navire
+				if (ar == true) {
+					boolean ver = this.isOnLigne();
+					int mesure;
+					if (ver == true) {//ce que j'avais cree est ce qu'il faut
+						mesure = (this.getEndC().getX() - this.getStartC().getX()) + 1;
+					} else {
+						mesure = (this.getEndC().getY() - this.getStartC().getY()) + 1;
+					}
+					if (mesure == taille) {
+						return -1;
+					} else {
+						return 3;
+					}
 				} else {
-					mesure = (this.getEndC().getY() - this.getStartC().getY()) + 1;
+					return 2;
 				}
-				if (mesure == taille) {
-					return -1;
-				} else {
-					return 3;
-				}
+
 			} else {
-				return 2;
+				return 1;
 			}
 
-		} else {
-			return 1;
 		}
-
 	}
-}
-
 

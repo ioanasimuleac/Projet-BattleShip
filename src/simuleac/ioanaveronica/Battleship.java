@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Battleship {
 
 	public static void main(String[] args) {
-		System.out.println("Choisiez avec qui vous voulez jouer: HUMAN ou AI.");
+		System.out.println("Choisissez avec qui vous voulez jouer: HUMAN ou AI.");
 		System.out.println("Pour HUMAN introduisez 1.");
 		System.out.println("Pour AI introduisez 2.");
 		Scanner ss = new Scanner(System.in);
@@ -40,7 +40,7 @@ public class Battleship {
 						case 1: 
 							boolean hit = false;
 							boolean check;
-							System.out.println("Player 1 : "+ p1.getName() + " , quelle est la case que vous voudriez frapper?");
+							System.out.println("Player 1 : "+ p1.getName() + " , ou que vous voudriez tirer?");
 							System.out.println("Donnez la coordonnees! svp!");
 							System.out.println("");
 							System.out.print("Coordonnee bateau (char) : ");
@@ -50,7 +50,7 @@ public class Battleship {
 							Coordinates c14 = new Coordinates(x.toUpperCase().charAt(0), y);
 							check = c14.isGood();
 							while(check == false ) {
-								System.out.println("SVP faire attention a la coordonnees introduites!");
+								System.out.println("SVP faire attention aux coordonnees introduites!");
 								System.out.println("");
 								System.out.print("Coordonnee bateau (char) : ");
 								x = s.nextLine();
@@ -73,8 +73,8 @@ public class Battleship {
 								while(hit == true && (p2.score() != p2.getFleet().size()) ) {//vreau sa ma opresc daca hit == false sau daca p1 a lovit tot ce se poate de la p2
 									hit = false;
 									System.out.println("Player 1 : "+ p1.getName() );
-									System.out.println("Vous avez frappe une partie de bateau de votre enimie. Alors vous avez une nouvelle possibilite de frapper encore fois!");
-									System.out.println("Player 1: quelle est la case que vous voudriez frapper?");
+									System.out.println("Vous avez touche une partie de bateau de votre enimie. Alors vous avez une nouvelle possibilite de tirer encore fois!");
+									System.out.println("Quelle est la case que vous voudriez toucher?");
 									System.out.println("Donnez la coordonnees! svp!");
 									System.out.println("");
 									System.out.print("Coordonnee bateau (char) : ");
@@ -84,7 +84,7 @@ public class Battleship {
 									c14 = new Coordinates(x.toUpperCase().charAt(0), y);
 									check = c14.isGood();
 									while(check == false ) {
-										System.out.println("SVP faire attention a la coordonnees introduites!");
+										System.out.println("SVP faire attention aux coordonnees introduites!");
 										System.out.println("");
 										System.out.print("Coordonnee bateau (char) : ");
 										x = s.nextLine();
@@ -110,8 +110,8 @@ public class Battleship {
 						case 2:
 							boolean frappe = false;
 							boolean checked;
-							System.out.println("Player 2 : "+ p2.getName() + " , quelle est la case que tu veux frapper!");
-							System.out.println("Donnez la coordonnees! svp!");
+							System.out.println("Player 2 : "+ p2.getName() + " , ou vous voudriez tirer?");
+							System.out.println("Donnez les coordonnees! svp!");
 							System.out.println("");
 							System.out.print("Coordonnee bateau (char) : ");
 							x = s.nextLine();
@@ -120,7 +120,7 @@ public class Battleship {
 							Coordinates c = new Coordinates(x.toUpperCase().charAt(0), y);
 							checked = c.isGood();
 							while(checked == false ) {
-								System.out.println("SVP faire attention a la coordonnees introduites!");
+								System.out.println("SVP faire attention aux coordonnees introduites!");
 								System.out.println("");
 								System.out.print("Coordonnee bateau (char) : ");
 								x = s.nextLine();
@@ -140,7 +140,7 @@ public class Battleship {
 								while(frappe == true && (p1.score() != p1.getFleet().size())) {
 									frappe = false;
 									System.out.println("Player 2 : "+ p2.getName() );
-									System.out.println("Vous avez frappe une partie de bateau de votre enimie. Alors vous avez une nouvelle possibilite de frapper encore fois!");
+									System.out.println("Vous avez touche une partie de bateau de votre enimie. Alors vous avez la possibilite de tirer encore fois!");
 									System.out.println("Player 2: quelle est la case que vous voudriez frapper?");
 									System.out.println("Donnez la coordonnees! svp!");
 									System.out.println("");
@@ -152,7 +152,7 @@ public class Battleship {
 									//System.out.println(c.toString());
 									checked = c.isGood();
 									while(checked == false ) {
-										System.out.println("SVP faire attention a la coordonnees introduites!");
+										System.out.println("SVP faire attention aux coordonnees introduites!");
 										System.out.print("Coordonnee bateau (char) : ");
 										x = s.nextLine();
 										System.out.print("Coordonnee bateau (int) : ");
@@ -239,7 +239,7 @@ public class Battleship {
 			
 		case 2:
 			System.out.println("Vivez AI!");
-			System.out.println("Le niveau de AI?:");
+			System.out.println("Le niveau de AI?");
 			System.out.println("Vous avez 3 choix possibles: BEGINNER, MEDIUM et HARD!");
 			System.out.println("Introduisez 'beginner' pour BEGINNER, 'medium' pour MEDIUN et 'hard' pour HARD!");
 			Scanner sss = new Scanner(System.in);
@@ -270,7 +270,7 @@ public class Battleship {
 						case 1: //omul ataca
 							boolean hit = false;
 							boolean check;
-							System.out.println("Player 1 : "+ ph.getName() + " , quelle est la case que vous voudriez frapper?");
+							System.out.println("Player 1 : "+ ph.getName() + " , ou vous voulez tirer?");
 							System.out.println("Donnez la coordonnees! svp!");
 							System.out.println("");
 							System.out.print("Coordonnee bateau (char) : ");
@@ -301,8 +301,8 @@ public class Battleship {
 								while(hit == true && (pi.score() != pi.getFleet().size()) ) {//vreau sa ma opresc daca hit == false sau daca p1 a lovit tot ce se poate de la p2
 									hit = false;
 									System.out.println("Player 1 : "+ ph.getName() );
-									System.out.println("Vous avez frappe une partie de bateau de votre enimie. Alors vous avez une nouvelle possibilite de frapper encore fois!");
-									System.out.println("Player 1: quelle est la case que vous voudriez frapper?");
+									System.out.println("Vous avez touche une partie de bateau de votre enimie. Alors vous avez la possibilite de tirer encore fois!");
+									System.out.println("Quelle est la case que vous voudriez tirer?");
 									System.out.println("Donnez la coordonnees! svp!");
 									System.out.println("");
 									System.out.print("Coordonnee bateau (char) : ");
@@ -337,7 +337,7 @@ public class Battleship {
 						
 						case 2:// AI ataca
 							boolean atacand = pi.attaque(ph);
-							System.out.println("\nRandu lu AI :) \n ");
+							System.out.println("\nTour de AI :) \n ");
 							while(atacand == true) {
 								atacand = pi.attaque(ph);
 							}
@@ -351,8 +351,8 @@ public class Battleship {
 						ph.getBattlefield().showGrid();
 						System.out.println("Grid AI: ");
 						pi.getBattlefield().showGrid();
-						System.out.println("score human: " +pi.score() );
-						System.out.println("score AI: " +ph.score() );
+						System.out.println("Score human: " +pi.score() );
+						System.out.println("Score AI: " +ph.score() );
 						if(ph.score() < pi.score()) {
 							System.out.println("GAME OVER!");
 							System.out.println("The winner is: " + ph.getName() );
@@ -433,7 +433,7 @@ public class Battleship {
 						case 1: //omul ataca
 							boolean hit = false;
 							boolean check;
-							System.out.println("Player 1 : "+ ph.getName() + " , quelle est la case que vous voudriez frapper?");
+							System.out.println("Player 1 : "+ ph.getName() + " , ou vous voulez tirer?");
 							System.out.println("Donnez la coordonnees! svp!");
 							System.out.println("");
 							System.out.print("Coordonnee bateau (char) : ");
@@ -443,7 +443,7 @@ public class Battleship {
 							Coordinates c14 = new Coordinates(xm.toUpperCase().charAt(0), ym);
 							check = c14.isGood();
 							while(check == false ) {
-								System.out.println("SVP faire attention a la coordonnees introduites!");
+								System.out.println("SVP faire attention aux coordonnees introduites!");
 								System.out.println("");
 								System.out.print("Coordonnee bateau (char) : ");
 								xm = nivBeg.nextLine();
@@ -464,8 +464,8 @@ public class Battleship {
 								while(hit == true && (pi.score() != pi.getFleet().size()) ) {//vreau sa ma opresc daca hit == false sau daca p1 a lovit tot ce se poate de la p2
 									hit = false;
 									System.out.println("Player 1 : "+ ph.getName() );
-									System.out.println("Vous avez frappe une partie de bateau de votre enimie. Alors vous avez une nouvelle possibilite de frapper encore fois!");
-									System.out.println("Player 1: quelle est la case que vous voudriez frapper?");
+									System.out.println("Vous avez touche une partie de bateau de votre enimie. Alors vous avez la possibilite de tirer encore fois!");
+									System.out.println("Quelle est la case desiree?");
 									System.out.println("Donnez la coordonnees! svp!");
 									System.out.println("");
 									System.out.print("Coordonnee bateau (char) : ");
@@ -475,7 +475,7 @@ public class Battleship {
 									c14 = new Coordinates(xm.toUpperCase().charAt(0), ym);
 									check = c14.isGood();
 									while(check == false ) {
-										System.out.println("SVP faire attention a la coordonnees introduites!");
+										System.out.println("SVP faire attention aux coordonnees introduites!");
 										System.out.println("");
 										System.out.print("Coordonnee bateau (char) : ");
 										xm = nivBeg.nextLine();
@@ -500,7 +500,7 @@ public class Battleship {
 						
 						case 2:// AI ataca
 							boolean atacand = pi.attaque(ph);
-							System.out.println("\nRandu lu AI :) \n ");
+							System.out.println("\nTour de AI :) \n ");
 							while(atacand == true) {
 								atacand = pi.attaque(ph);
 							}
@@ -514,8 +514,8 @@ public class Battleship {
 						ph.getBattlefield().showGrid();
 						System.out.println("Grid AI: ");
 						pi.getBattlefield().showGrid();
-						System.out.println("score human: " +pi.score() );
-						System.out.println("score AI: " +ph.score() );
+						System.out.println("Score human: " +pi.score() );
+						System.out.println("Score AI: " +ph.score() );
 						if(ph.score() < pi.score()) {
 							System.out.println("GAME OVER!");
 							System.out.println("The winner is: " + ph.getName() );
@@ -533,10 +533,10 @@ public class Battleship {
 						System.out.println();
 						if(nouveauJeu.equals("oui")) {
 							recomm = 1;
-							if(ph.score() < pi.score()) {
+							if(ph.score() > pi.score()) {
 								joueur = 1;
 								System.out.println("Vous avez choisi de jouer un autre jeu!");
-								System.out.println("Il faut recreer tous les bateaux!");
+								System.out.println("Il faut recreer tous les navires!");
 								System.out.println();
 								System.out.println("Joueur " + ph.getName() + " commence! ");
 								//creation de la flotte pour Player 1
@@ -553,7 +553,7 @@ public class Battleship {
 							}else {
 								joueur = 2;
 								System.out.println("Vous avez choisi de jouer un autre jeu!");
-								System.out.println("Il faut recreer tous les bateaux!");
+								System.out.println("Il faut recreer tous les navires!");
 								System.out.println();
 								System.out.println("Joueur AI commence! ");
 								//creation de la flotte pour Player 1
@@ -594,7 +594,7 @@ public class Battleship {
 						case 1: //omul ataca
 							boolean hit = false;
 							boolean check;
-							System.out.println("Player 1 : "+ ph.getName() + " , quelle est la case que vous voudriez frapper?");
+							System.out.println("Player 1 : "+ ph.getName() + " , ou vous voulez tirer?");
 							System.out.println("Donnez la coordonnees! svp!");
 							System.out.println("");
 							System.out.print("Coordonnee bateau (char) : ");
@@ -604,7 +604,7 @@ public class Battleship {
 							Coordinates c141 = new Coordinates(xh.toUpperCase().charAt(0), yh);
 							check = c141.isGood();
 							while(check == false ) {
-								System.out.println("SVP faire attention a la coordonnees introduites!");
+								System.out.println("SVP faire attention aux coordonnees introduites!");
 								System.out.println("");
 								System.out.print("Coordonnee bateau (char) : ");
 								xh = nivBeg.nextLine();
@@ -625,8 +625,8 @@ public class Battleship {
 								while(hit == true && (pih.score() != pih.getFleet().size()) ) {//vreau sa ma opresc daca hit == false sau daca p1 a lovit tot ce se poate de la p2
 									hit = false;
 									System.out.println("Player 1 : "+ ph.getName() );
-									System.out.println("Vous avez frappe une partie de bateau de votre enimie. Alors vous avez une nouvelle possibilite de frapper encore fois!");
-									System.out.println("Player 1: quelle est la case que vous voudriez frapper?");
+									System.out.println("Vous avez touche une partie de bateau de votre enimie. Alors vous avez la possibilite de tirer encore fois!");
+									System.out.println("Quelle est la case voulue?");
 									System.out.println("Donnez la coordonnees! svp!");
 									System.out.println("");
 									System.out.print("Coordonnee bateau (char) : ");
@@ -636,7 +636,7 @@ public class Battleship {
 									c141 = new Coordinates(xh.toUpperCase().charAt(0), yh);
 									check = c141.isGood();
 									while(check == false ) {
-										System.out.println("SVP faire attention a la coordonnees introduites!");
+										System.out.println("SVP faire attention aux coordonnees introduites!");
 										System.out.println("");
 										System.out.print("Coordonnee bateau (char) : ");
 										xh = nivBeg.nextLine();
@@ -661,7 +661,7 @@ public class Battleship {
 						
 						case 2:// AI ataca
 							boolean atacand = pih.attaque(ph);
-							System.out.println("\nRandu lu AI :) \n ");
+							System.out.println("\nTour de AI :) \n ");
 							while(atacand == true) {
 								atacand = pih.attaque(ph);
 							}
@@ -695,10 +695,10 @@ public class Battleship {
 						System.out.println();
 						if(nouveauJeu.equals("oui")) {
 							rec = 1;
-							if(ph.score() < pih.score()) {
+							if(ph.score() > pih.score()) {
 								joueur = 1;
 								System.out.println("Vous avez choisi de jouer un autre jeu!");
-								System.out.println("Il faut recreer tous les bateaux!");
+								System.out.println("Il faut recreer tous les navires!");
 								System.out.println();
 								System.out.println("Joueur " + ph.getName() + " commence! ");
 								//creation de la flotte pour Player 1
@@ -715,7 +715,7 @@ public class Battleship {
 							}else {
 								joueur = 2;
 								System.out.println("Vous avez choisi de jouer un autre jeu!");
-								System.out.println("Il faut recreer tous les bateaux!");
+								System.out.println("Il faut recreer tous les navires!");
 								System.out.println();
 								System.out.println("Joueur AI commence! ");
 								//creation de la flotte pour Player 1
@@ -735,7 +735,7 @@ public class Battleship {
 				}
 			}else {
 				niveau = 0;
-				System.out.println("Ce que vous desirez n'existe pas!");
+				System.out.println("Ce que vous desirez n'existe pas encore!");
 			}
 		}	
 	}
