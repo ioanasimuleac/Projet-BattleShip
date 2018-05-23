@@ -34,8 +34,8 @@ public class Cruiser extends Ships {
 	
 	// -1 si tout est bon
 	// 1 si les coordononnees sont mal ecrites
-	// 2 je ne peux pas creer le navire avec les coordonnees introduites
-	// 3 le navire cree n'a pas la longeur desiree
+	// 2 si nu pot creea shipul cu datele date
+	// 3 si shipul creat nu are lungimea care trebuie
 	public int verification() {
 		boolean ar;
 		boolean goodCoordStart = this.getStartC().isGood();
